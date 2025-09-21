@@ -8,7 +8,7 @@ import os
 
 # ========== KONFIGURASI ==========
 BASE_DIR = os.path.dirname(__file__)
-MMODEL_PATH = os.path.join(BASE_DIR, "EfficientNetB0_pepaya.h5")  # Pastikan file model ada di direktori yang sama
+MMODEL_PATH = os.path.join(BASE_DIR, "EfficientNetB0_pepaya.keras")  # Pastikan file model ada di direktori yang sama
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
 
 st.set_page_config(
@@ -233,4 +233,5 @@ elif st.session_state.current_image_bytes is None:
 # Tutup container
 
 st.markdown('</div>', unsafe_allow_html=True)
+
 
