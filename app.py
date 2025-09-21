@@ -8,11 +8,11 @@ import os
 
 # ========== KONFIGURASI ==========
 BASE_DIR = os.path.dirname(__file__)
-MMODEL_PATH = os.path.join(BASE_DIR, "EfficientNetB0_pepaya.keras")  # Pastikan file model ada di direktori yang sama
+MODEL_PATH = os.path.join(BASE_DIR, "EfficientNetB0_pepaya.keras")  # Pastikan file model ada di folder yang sama
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
 
 st.set_page_config(
-    page_title="Klasifikasi Pepaya", 
+    page_title="Klasifikasi Pepaya",
     layout="centered",
     initial_sidebar_state="collapsed"
 )
@@ -85,10 +85,6 @@ st.markdown("""
     
     .stButton > button:hover {
         transform: translateY(-2px) !important;
-        box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4) !important;
-    }
-    
-    .stButton > button:focus {
         box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4) !important;
     }
     
@@ -200,10 +196,7 @@ active_file = camera_file if camera_file is not None else uploaded_file
 # Proses dan tampilkan gambar jika ada file yang aktif
 if active_file is not None:
     try:
-        # Simpan byte gambar ke session state
         st.session_state.current_image_bytes = active_file.getvalue()
-        # Tampilkan gambar
-        # INI BAGIAN YANG DIPERBAIKI: use_container_width=True
         st.image(st.session_state.current_image_bytes, caption="Gambar Pratinjau", use_container_width=True)
     except Exception as e:
         st.markdown(f'<div class="result-error">❌ Error saat membaca file: {e}</div>', unsafe_allow_html=True)
@@ -230,8 +223,4 @@ if st.session_state.prediction_result:
 elif st.session_state.current_image_bytes is None:
     st.markdown('<div class="result-info">📱 Ambil foto atau unggah gambar pepaya untuk memulai.</div>', unsafe_allow_html=True)
 
-# Tutup container
-
 st.markdown('</div>', unsafe_allow_html=True)
-
-
