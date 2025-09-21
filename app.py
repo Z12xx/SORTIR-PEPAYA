@@ -8,7 +8,7 @@ import os
 
 # ========== KONFIGURASI ==========
 BASE_DIR = os.path.dirname(__file__)
-MODEL_PATH = os.path.join(BASE_DIR, "EfficientNetB0_pepaya.keras") # Pastikan file model ada di direktori yang sama
+MODEL_PATH = os.path.join(EfficientNetB0_pepaya.keras) # Pastikan file model ada di direktori yang sama
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
 
 st.set_page_config(
@@ -231,4 +231,5 @@ elif st.session_state.current_image_bytes is None:
     st.markdown('<div class="result-info">📱 Ambil foto atau unggah gambar pepaya untuk memulai.</div>', unsafe_allow_html=True)
 
 # Tutup container
+
 st.markdown('</div>', unsafe_allow_html=True)
